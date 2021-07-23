@@ -26,7 +26,14 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+function getTotalCount(animals) {
+  let total = 0;
+  for (let animal of animals) {
+    total += animal.count;
+  }
+  console.log(total)
+  return total;
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -40,7 +47,14 @@ function getTotalCount(animals) {}
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animals) {}
+function getAllKinds(animals) {
+  let array = [];
+  for (let animal of animals) {
+    array.push(animal.kind)
+  }
+  console.log(array);
+  return array
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -59,7 +73,16 @@ function getAllKinds(animals) {}
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animals, minimum) {
+  let array = [];
+  for (let animal of animals) {
+    if (animal.count >= minimum) {
+      array.push(animal);
+    }
+  }
+  console.log(array);
+  return array
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -73,7 +96,19 @@ function filterByCountMinimum(animals, minimum) {}
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animals) {
+  let highest = animals[0];
+  for (let animal of animals) {
+    if (animal.count > highest.count) {
+      highest = animal;
+    }  
+  }
+  if (highest === undefined) {
+    highest = null;
+  }
+  console.log(highest);
+  return highest
+}
 
 // Do not change anything below this line.
 module.exports = {
